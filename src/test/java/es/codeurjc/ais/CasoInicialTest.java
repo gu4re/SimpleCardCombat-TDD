@@ -14,9 +14,10 @@ public class CasoInicialTest {
         String result = Combate.combatir(c1, c2);
         Assertions.assertEquals(result, expected);
     }
+
     @Test
     public void Test2() {
-        
+
     }
 
 }
