@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="AIS-Practica-2-2023" />
         <module name="diego.picazo.lara.fernandez" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AIS-Practica-2-2023" options="-parameters" />
       <module name="diego.picazo.lara.fernandez" options="-parameters" />
     </option>
   </component>
