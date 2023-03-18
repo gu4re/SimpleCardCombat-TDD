@@ -1,15 +1,13 @@
 package es.codeurjc.ais;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 @DisplayName("Initial Case examples ...")
 public class InitialCaseTest {
-    static String expected;
-    static String result;
-    static Card card_1;
-    static Card card_2;
+    private static String expected;
+    private static String result;
+    protected static Card card_1;
+    protected static Card card_2;
     @BeforeEach
     public void setUp(){
         expected = "";
@@ -98,13 +96,22 @@ public class InitialCaseTest {
             Assertions.assertEquals(expected, result);
         });
     }
-    @Test
+    @Nested
     @DisplayName("Seventh Example")
-    public void test7(){
-        card_1 = new Card("Carta 1", 1500, 2850, Position.DEFENSE);
-        card_2 = new Card("Carta 2", 2000, 1500, Position.DEFENSE);
-        Assertions.assertThrows(IllegalPositionException.class, () ->
-                result = Combat.combat(card_1, card_2)
-        );
+    class SeventhExample {
+        @BeforeEach
+        public void setUp(){
+            card_1 = null;
+            card_2 = null;
+        }
+        @Test
+        @DisplayName("Exception thrown")
+        public void test7(){
+            card_1 = new Card("Carta 1", 1500, 2850, Position.DEFENSE);
+            card_2 = new Card("Carta 2", 2000, 1500, Position.DEFENSE);
+            Assertions.assertThrows(IllegalPositionException.class, () ->
+                    Combat.combat(card_1, card_2)
+            );
+        }
     }
 }
