@@ -1,5 +1,6 @@
 package es.codeurjc.ais;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,6 @@ public class IntermediateCaseTest {
 	@Test
     @DisplayName("First Example")
 	public void test8(){
-	
+		Assertions.assertTrue(true);
 	}
 }

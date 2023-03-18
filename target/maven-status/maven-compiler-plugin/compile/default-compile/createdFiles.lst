@@ -1,13 +1,5 @@
-es/codeurjc/ais/review/ReviewRepository.class
-es/codeurjc/ais/book/OpenLibraryService.class
-es/codeurjc/ais/review/Review.class
-es/codeurjc/ais/book/BookService.class
+es/codeurjc/ais/Card.class
 es/codeurjc/ais/Application.class
-es/codeurjc/ais/book/Book.class
-es/codeurjc/ais/rest/BookRestController.class
-es/codeurjc/ais/notification/NotificationService.class
-es/codeurjc/ais/book/BookDetail.class
-es/codeurjc/ais/book/OpenLibraryService$BookData.class
-es/codeurjc/ais/book/OpenLibraryService$BooksResponse.class
-es/codeurjc/ais/web/BookWebController.class
-es/codeurjc/ais/review/ReviewService.class
+es/codeurjc/ais/IllegalPositionException.class
+es/codeurjc/ais/Position.class
+es/codeurjc/ais/Combat.class
