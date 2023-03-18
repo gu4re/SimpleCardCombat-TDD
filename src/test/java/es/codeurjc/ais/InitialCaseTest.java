@@ -75,4 +75,24 @@ public class InitialCaseTest {
         result = Combat.combat(card_1, card_2);
         Assertions.assertEquals(expected, result);
     }
+    @Test
+    @DisplayName("Sixth Example")
+    public void test6(){
+        expected = """
+                Carta 1 (1500/2850/Posición: Ataque) vs Carta 2
+                (2000/1500/Posición: Defensa) -> Empate.""";
+        card_1 = new Card("Carta 1", 1500, 2850, Position.ATTACK);
+        card_2 = new Card("Carta 2", 2000, 1500, Position.DEFENSE);
+        result = Combat.combat(card_1, card_2);
+        Assertions.assertEquals(expected, result);
+    }
+    @Test
+    @DisplayName("Seventh Example")
+    public void test7(){
+        card_1 = new Card("Carta 1", 1500, 2850, Position.DEFENSE);
+        card_2 = new Card("Carta 2", 2000, 1500, Position.DEFENSE);
+        Assertions.assertThrows(IllegalPositionException.class, () ->
+                result = Combat.combat(card_1, card_2)
+        );
+    }
 }
