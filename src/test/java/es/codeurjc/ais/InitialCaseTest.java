@@ -12,7 +12,7 @@ public class InitialCaseTest {
                 puntos. Carta 2 destruido/a.""";
         Card card_1 = new Card("Carta 1", 3000, 2500, Position.Attack);
         Card card_2 = new Card("Carta 2", 2500, 2100, Position.Attack);
-        String result = Combat.combatir(card_1, card_2);
+        String result = Combat.combat(card_1, card_2);
         Assertions.assertEquals(result, expected);
     }
 }
