@@ -1,10 +1,12 @@
 package es.codeurjc.ais;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
+@DisplayName("Initial Case examples ...")
 public class InitialCaseTest {
     @Test
+    @DisplayName("First Example")
     public void Test1() {
         String expected = """
                 Carta 1 (3000/2500/Posición: Ataque) vs Carta 2
@@ -15,4 +17,5 @@ public class InitialCaseTest {
         String result = Combat.combat(card_1, card_2);
         Assertions.assertEquals(result, expected);
     }
+    
 }
