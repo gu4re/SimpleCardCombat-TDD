@@ -26,8 +26,10 @@ public class InitialCaseTest {
                 puntos. Carta 2 destruido/a.""";
         card_1 = new Card("Carta 1", 3000, 2500, Position.ATTACK);
         card_2 = new Card("Carta 2", 2500, 2100, Position.ATTACK);
-        result = Combat.combat(card_1, card_2);
-        Assertions.assertEquals(expected, result);
+        Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
     }
     @Test
     @DisplayName("Second Example")
@@ -38,8 +40,10 @@ public class InitialCaseTest {
                 puntos. Carta 1 destruido/a.""";
         card_1 = new Card("Carta 1", 1200, 1000, Position.ATTACK);
         card_2 = new Card("Carta 2", 1500, 1500, Position.ATTACK);
-        result = Combat.combat(card_1, card_2);
-        Assertions.assertEquals(expected, result);
+        Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
     }
     @Test
     @DisplayName("Third Example")
@@ -49,8 +53,10 @@ public class InitialCaseTest {
                 (2000/1500/Posición: Ataque) -> Empate. Ambas cartas destruidas.""";
         card_1 = new Card("Carta 1", 2000, 0, Position.ATTACK);
         card_2 = new Card("Carta 2", 2000, 1500, Position.ATTACK);
-        result = Combat.combat(card_1, card_2);
-        Assertions.assertEquals(expected, result);
+        Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
     }
     @Test
     @DisplayName("Fourth Example")
@@ -60,8 +66,10 @@ public class InitialCaseTest {
                 (2000/1500/Posición: Defensa) -> Gana Carta 1. Carta 2 destruido/a.""";
         card_1 = new Card("Carta 1", 1501, 2850, Position.ATTACK);
         card_2 = new Card("Carta 2", 2000, 1500, Position.DEFENSE);
-        result = Combat.combat(card_1, card_2);
-        Assertions.assertEquals(expected, result);
+        Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
     }
     @Test
     @DisplayName("Fifth Example")
@@ -72,8 +80,10 @@ public class InitialCaseTest {
                 puntos.""";
         card_1 = new Card("Carta 1", 2000, 2850, Position.ATTACK);
         card_2 = new Card("Carta 2", 0, 3000, Position.DEFENSE);
-        result = Combat.combat(card_1, card_2);
-        Assertions.assertEquals(expected, result);
+        Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
     }
     @Test
     @DisplayName("Sixth Example")
@@ -83,8 +93,10 @@ public class InitialCaseTest {
                 (2000/1500/Posición: Defensa) -> Empate.""";
         card_1 = new Card("Carta 1", 1500, 2850, Position.ATTACK);
         card_2 = new Card("Carta 2", 2000, 1500, Position.DEFENSE);
-        result = Combat.combat(card_1, card_2);
-        Assertions.assertEquals(expected, result);
+        Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
     }
     @Test
     @DisplayName("Seventh Example")
