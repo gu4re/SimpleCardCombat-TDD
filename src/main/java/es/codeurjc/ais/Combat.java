@@ -1,14 +1,18 @@
 package es.codeurjc.ais;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Combat {
     private static final StringBuilder combat_resolution = new StringBuilder();
     private Combat(){}
-    public static String combat(Card c1, Card c2) throws IllegalPositionException{
+    @NotNull
+    public static String combat(@NotNull Card c1, @NotNull Card c2) throws IllegalPositionException{
         // Clear StringBuilder
         combat_resolution.setLength(0);
         // Attacker is in defense mode
         if (c1.getPosition().equals(Position.DEFENSE))
-            throw new IllegalPositionException();
+            throw new IllegalPositionException("La carta atacante no " +
+                                               "puede estar en una posición de Defensa");
         // Attacker is in attack mode
         else {
             // Defense is in attack mode
