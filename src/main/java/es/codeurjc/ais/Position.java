@@ -1,5 +1,8 @@
 package es.codeurjc.ais;
 
 public enum Position {
-    ATTACK, DEFENSE
+    ATTACK,DEFENSE;
+    enum EFFECT{
+        IMMORTAL, NA
+    }
 }

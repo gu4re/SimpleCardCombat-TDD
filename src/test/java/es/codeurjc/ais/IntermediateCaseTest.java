@@ -21,6 +21,17 @@ public class IntermediateCaseTest {
 	@Test
     @DisplayName("Eighth Example")
 	public void test8(){
-		Assertions.assertTrue(true);
+		expected = """
+                Carta 1 (2000/2850/Posición: Ataque/Efecto: Inmortal) vs Carta 2
+                (2000/1500/Posición: Ataque/Efecto: N/A) -> Empate.
+                Carta 2 destruido/a.""";
+        card_1 = new Card("Carta 1", 2000, 2850,
+		        Position.ATTACK, Position.EFFECT.IMMORTAL);
+        card_2 = new Card("Carta 2", 2000, 1500,
+		        Position.ATTACK, Position.EFFECT.NA);
+		Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
 	}
 }

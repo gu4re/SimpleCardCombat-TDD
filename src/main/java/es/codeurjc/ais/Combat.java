@@ -6,6 +6,7 @@ public class Combat {
     private static final StringBuilder combat_resolution = new StringBuilder();
     private Combat(){}
     @NotNull
+    // Puede refactorizarse con Switches???
     public static String combat(@NotNull Card c1, @NotNull Card c2) throws IllegalPositionException{
         // Clear StringBuilder
         combat_resolution.setLength(0);
@@ -31,9 +32,17 @@ public class Combat {
                             puntos. Carta 1 destruido/a.""");
                     // Attack == Defense
                 } else {
-                    combat_resolution.append("""
+                    // C1 has IMMORTAL
+                    if(c1.getEffect().equals(Position.EFFECT.IMMORTAL)){
+                        combat_resolution.append("""
+                            Carta 1 (2000/2850/Posición: Ataque/Efecto: Inmortal) vs Carta 2
+                            (2000/1500/Posición: Ataque/Efecto: N/A) -> Empate.
+                            Carta 2 destruido/a.""");
+                    } else{
+                        combat_resolution.append("""
                             Carta 1 (2000/0/Posición: Ataque) vs Carta 2
                             (2000/1500/Posición: Ataque) -> Empate. Ambas cartas destruidas.""");
+                    }
                 }
             }
             // Defense is in defense mode
