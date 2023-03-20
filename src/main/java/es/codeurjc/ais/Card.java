@@ -1,21 +1,23 @@
 package es.codeurjc.ais;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class Card {
     private final int attack;
     private final int defense;
     @NotNull
     private final Position position;
+    @Nullable
     private Position.EFFECT effect;
     public Card(String name, int attack, int defense, @NotNull Position position) {
         this.attack = attack;
         this.position = position;
         this.defense = defense;
-        this.effect = Position.EFFECT.NA;
+        this.effect = null;
     }
     public Card(String name, int attack, int defense, @NotNull Position position,
-                Position.EFFECT effect) {
+                @Nullable Position.EFFECT effect) {
         this(name,attack,defense,position);
         this.effect = effect;
     }
@@ -29,6 +31,7 @@ public class Card {
     public int getDefense(){
         return defense;
     }
+    @Nullable
     public Position.EFFECT getEffect(){
         return effect;
     }
