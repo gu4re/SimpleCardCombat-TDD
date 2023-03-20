@@ -13,7 +13,6 @@ public class Combat {
         if (c1.getPosition() == Position.DEFENSE)
             throw new IllegalPositionException("La carta atacante no puede estar en una posición de Defensa");
         combat_resolution.append(String.format("Carta 1 (%d/%d/Posición: Ataque", c1.getAttack(), c1.getDefense()));
-        //combat_resolution.append(String.format("/Efecto: %s", c1.getEffect().toString() != null ? c1.getEffect().toString() : ""));
         if (c1.getEffect() != null)
             combat_resolution.append(String.format("/Efecto: %s", c1.getEffect().toString()));
         combat_resolution.append(") vs ");
@@ -24,7 +23,12 @@ public class Combat {
                     combat_resolution.append(String.format("/Efecto: %s", c2.getEffect().toString()));
                 combat_resolution.append(") -> ");
                 switch (Integer.signum(Integer.compare(c1.getAttack(), c2.getAttack()))) {
-                    case -1 -> combat_resolution.append("Gana Carta 2. Atacante pierde 300 puntos. Carta 1 destruido/a.");
+                    case -1 -> {
+                         if (c1.getEffect() != null && c1.getEffect().equals(Position.EFFECT.IMMORTAL))
+                             combat_resolution.append("Gana Carta 2. Atacante pierde 200 puntos.");
+                         else
+                            combat_resolution.append("Gana Carta 2. Atacante pierde 300 puntos. Carta 1 destruido/a.");
+                    }
                     case 0 -> {
                         if (c1.getEffect() != null && c1.getEffect().equals(Position.EFFECT.IMMORTAL))
                             combat_resolution.append("Empate. Carta 2 destruido/a.");
