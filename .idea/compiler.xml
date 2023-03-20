@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="AIS-Practica-2-2023" />
         <module name="diego.picazo.lara.fernandez" />
+        <module name="AIS" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AIS" options="-parameters" />
       <module name="AIS-Practica-2-2023" options="-parameters" />
     </option>
   </component>
