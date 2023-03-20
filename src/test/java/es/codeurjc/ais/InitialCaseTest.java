@@ -91,6 +91,7 @@ public class InitialCaseTest {
     }
     @Nested
     @DisplayName("Seventh Example")
+    // Avoided the usage of unused variables as 'expected' or 'result' here
     class SeventhExample {
         @BeforeEach
         public void setUp(){

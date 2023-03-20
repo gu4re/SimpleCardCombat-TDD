@@ -10,7 +10,9 @@ public class Card {
     private final Position position;
     @Nullable
     private Position.EFFECT effect;
+    private final String name;
     public Card(String name, int attack, int defense, @NotNull Position position) {
+        this.name = name;
         this.attack = attack;
         this.position = position;
         this.defense = defense;
@@ -34,5 +36,8 @@ public class Card {
     @Nullable
     public Position.EFFECT getEffect(){
         return effect;
+    }
+    public String getName(){
+        return name;
     }
 }
