@@ -30,10 +30,12 @@ public class Combat {
         }
     }
     private static void attackVsDefense(@NotNull Card card1, @NotNull Card card2){
+        // Local variables
+        final int DEFENSE_THRESHOLD = 2000;
         switch (Integer.signum(Integer.compare(card1.getAttack(), card2.getDefense()))) {
             case -1 -> {
                 if (card1.getEffect() != null && card1.getEffect().equals(Position.EFFECT.MORTAL_TOUCH)
-                    && card2.getDefense() < 2000)
+                    && card2.getDefense() < DEFENSE_THRESHOLD)
                     combat_resolution.append("Gana Carta 2. Atacante pierde 500 puntos. Carta 2 destruido/a.");
                 else
                     combat_resolution.append("Gana Carta 2. Atacante pierde 1000 puntos.");
@@ -43,6 +45,9 @@ public class Combat {
                 combat_resolution.append("Gana Carta 1.");
                 if (card2.getEffect() == null)
                     combat_resolution.append(" Carta 2 destruido/a.");
+                else if (card2.getEffect().equals(Position.EFFECT.MORTAL_TOUCH)
+                        && card1.getDefense() < DEFENSE_THRESHOLD)
+                    combat_resolution.append(" Ambas cartas destruidas.");
             }
             default -> throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
         }
