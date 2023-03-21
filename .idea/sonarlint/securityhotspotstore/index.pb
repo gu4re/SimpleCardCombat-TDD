@@ -13,5 +13,3 @@ g
 7src/test/java/es/codeurjc/ais/IntermediateCaseTest.java,0/a/0af5399e354fc3e53a771436d6eb4b12ac0d9290
 [
 +src/main/java/es/codeurjc/ais/Position.java,0/7/07e8a55987b4f91edb6be489ba9867bcfdce9d00
-Y
-)src/main/java/es/codeurjc/ais/Combat.java,d/e/deda7aa93d19a2e75efd27f0a608e67872a7be17
