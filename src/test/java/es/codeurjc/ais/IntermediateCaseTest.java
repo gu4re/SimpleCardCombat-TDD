@@ -46,4 +46,18 @@ public class IntermediateCaseTest {
             Assertions.assertEquals(expected, result);
         });
 	}
+	@Test
+	@DisplayName("Tenth Example")
+	public void test10(){
+		expected = "Carta 1 (2100/2850/Posición: Ataque/Efecto: NA) vs Carta 2 " +
+				"(2000/1500/Posición: Ataque/Efecto: IMMORTAL) -> Gana Carta 1. Defensor pierde 100 puntos.";
+        card_1 = new Card("Carta 1", 2100, 2850,
+		        Position.ATTACK, Position.EFFECT.NA);
+        card_2 = new Card("Carta 2", 2000, 1500,
+		        Position.ATTACK, Position.EFFECT.IMMORTAL);
+		Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
+	}
 }

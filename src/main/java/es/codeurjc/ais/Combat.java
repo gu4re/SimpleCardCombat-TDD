@@ -20,7 +20,12 @@ public class Combat {
                 else
                     combat_resolution.append("Empate. Ambas cartas destruidas.");
             }
-            case 1 -> combat_resolution.append("Gana Carta 1. Defensor pierde 500 puntos. Carta 2 destruido/a.");
+            case 1 -> {
+                if (card2.getEffect() != null && card2.getEffect().equals(Position.EFFECT.IMMORTAL))
+                    combat_resolution.append("Gana Carta 1. Defensor pierde 100 puntos.");
+                else
+                    combat_resolution.append("Gana Carta 1. Defensor pierde 500 puntos. Carta 2 destruido/a.");
+            }
             default -> throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
         }
     }
@@ -32,6 +37,13 @@ public class Combat {
             default -> throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
         }
     }
+    /*private static @NotNull String processEffect(@NotNull Card card){
+        if (card.getEffect().toString().equals("NA"))
+            return "N/A";
+        else if(card.getEffect().toString().equals("IMMORTAL"))
+            return "Inmortal";
+        return card.getEffect().toString();
+    }*/
     private static @NotNull String getCardInfo(@NotNull Card card){
         // Local variables
         final String CARD1_NAME = "Carta 1";
@@ -41,6 +53,7 @@ public class Combat {
                 card.getDefense(), (card.getPosition().equals(Position.ATTACK) ? "Ataque" : "Defensa"))));
         if (card.getEffect() != null)
             cardInfoBuilder.append(String.format("/Efecto: %s", card.getEffect().toString()));
+            //cardInfoBuilder.append(String.format("/Efecto: %s", processEffect(card)));
         cardInfoBuilder.append(")");
         return cardInfoBuilder.toString();
     }
@@ -51,7 +64,7 @@ public class Combat {
         final int ZERO = 0;
         // Clear StringBuilder
         combat_resolution.setLength(ZERO);
-        if (card1.getPosition() == Position.DEFENSE)
+        if (card1.getPosition().equals(Position.DEFENSE))
             throw new IllegalPositionException(ERROR_MESSAGE);
         combat_resolution.append(getCardInfo(card1))
                 .append(" vs ").append(getCardInfo(card2)).append(" -> ");
