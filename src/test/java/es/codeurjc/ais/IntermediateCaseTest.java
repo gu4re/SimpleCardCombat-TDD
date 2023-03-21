@@ -103,4 +103,60 @@ public class IntermediateCaseTest {
             Assertions.assertEquals(expected, result);
         });
 	}
+	@Test
+	@DisplayName("Fourteenth Example")
+	public void test14(){
+		expected = "Carta 1 (1000/1000/Posición: Ataque/Efecto: Toque mortal) vs Carta 2 (0/1000/Posición: " +
+				"Defensa/Efecto: Toque mortal) -> Empate. Ambas cartas destruidas.";
+        card_1 = new Card("Carta 1", 1000, 1000,
+		        Position.ATTACK, Position.EFFECT.MORTAL_TOUCH);
+        card_2 = new Card("Carta 2", 0, 1000,
+		        Position.DEFENSE, Position.EFFECT.MORTAL_TOUCH);
+		Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
+	}
+	@Test
+	@DisplayName("Fifteenth Example")
+	public void test15(){
+		expected = "Carta 1 (1500/1000/Posición: Ataque/Efecto: Toque mortal) vs Carta 2 (2000/1500/Posición: " +
+				"Ataque/Efecto: N/A) -> Gana Carta 2. Atacante pierde 500 puntos. Ambas cartas destruidas.";
+        card_1 = new Card("Carta 1", 1500, 1000,
+		        Position.ATTACK, Position.EFFECT.MORTAL_TOUCH);
+        card_2 = new Card("Carta 2", 2000, 1500,
+		        Position.ATTACK, Position.EFFECT.NA);
+		Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
+	}
+	@Test
+	@DisplayName("Sixteenth Example")
+	public void test16(){
+		expected = "Carta 1 (1000/0/Posición: Ataque/Efecto: Presión) vs Carta 2 (0/3000/Posición: " +
+				"Defensa/Efecto: N/A) -> Gana Carta 2. Atacante pierde 1000 puntos.";
+        card_1 = new Card("Carta 1", 1000, 0,
+		        Position.ATTACK, Position.EFFECT.PRESSURE);
+        card_2 = new Card("Carta 2", 0, 3000,
+		        Position.DEFENSE, Position.EFFECT.NA);
+		Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
+	}
+	@Test
+	@DisplayName("Seventeenth Example")
+	public void test17(){
+		expected = "Carta 1 (2000/0/Posición: Ataque/Efecto: N/A) vs Carta 2 (1500/0/Posición: " +
+				"Ataque/Efecto: Presión) -> Gana Carta 1. Defensor pierde 250 puntos. Carta 2 destruido/a.";
+        card_1 = new Card("Carta 1", 2000, 0,
+		        Position.ATTACK, Position.EFFECT.NA);
+        card_2 = new Card("Carta 2", 1500, 0,
+		        Position.ATTACK, Position.EFFECT.PRESSURE);
+		Assertions.assertDoesNotThrow(() -> {
+            result = Combat.combat(card_1, card_2);
+            Assertions.assertEquals(expected, result);
+        });
+	}
 }

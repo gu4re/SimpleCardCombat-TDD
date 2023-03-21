@@ -9,9 +9,11 @@ public class Combat {
     private static void attackVsAttack(@NotNull Card card1, @NotNull Card card2){
         switch (Integer.signum(Integer.compare(card1.getAttack(), card2.getAttack()))) {
             case -1 -> {
-                 if (card1.getEffect() != null && card1.getEffect().equals(Position.EFFECT.IMMORTAL))
-                     combat_resolution.append("Gana Carta 2. Atacante pierde 200 puntos.");
-                 else
+                if (card1.getEffect() != null)
+                    combat_resolution.append((card1.getEffect().equals(Position.EFFECT.IMMORTAL)
+                            ? "Gana Carta 2. Atacante pierde 200 puntos."
+                            : "Gana Carta 2. Atacante pierde 500 puntos. Ambas cartas destruidas."));
+                else
                     combat_resolution.append("Gana Carta 2. Atacante pierde 300 puntos. Carta 1 destruido/a.");
             }
             case 0 -> {
@@ -37,10 +39,14 @@ public class Combat {
                 if (card1.getEffect() != null && card1.getEffect().equals(Position.EFFECT.MORTAL_TOUCH)
                     && card2.getDefense() < DEFENSE_THRESHOLD)
                     combat_resolution.append("Gana Carta 2. Atacante pierde 500 puntos. Carta 2 destruido/a.");
-                else
+                else // Por aqui se cuela el test 16 de Presión
                     combat_resolution.append("Gana Carta 2. Atacante pierde 1000 puntos.");
             }
-            case 0 -> combat_resolution.append("Empate.");
+            case 0 -> combat_resolution.append("Empate.")
+                        .append((card1.getEffect() != null && card2.getEffect() != null &&
+                                 card1.getEffect().equals(Position.EFFECT.MORTAL_TOUCH)
+                                 && card2.getEffect().equals(Position.EFFECT.MORTAL_TOUCH))
+                                 ? " Ambas cartas destruidas." : "");
             case 1 -> {
                 combat_resolution.append("Gana Carta 1.");
                 if (card2.getEffect() == null)
@@ -59,6 +65,8 @@ public class Combat {
             return "Inmortal";
         else if (effect.toString().equals("MORTAL_TOUCH"))
             return "Toque mortal";
+        else if (effect.toString().equals("PRESSURE"))
+            return "Presión";
         return effect.toString();
     }
     private static @NotNull String getCardInfo(@NotNull Card card){
