@@ -1,7 +1,6 @@
 es/codeurjc/ais/Card.class
 es/codeurjc/ais/IllegalPositionException.class
 es/codeurjc/ais/Position.class
+es/codeurjc/ais/Combat$1.class
 es/codeurjc/ais/Position$EFFECT.class
 es/codeurjc/ais/Combat.class
-es/codeurjc/ais/Application.class
-es/codeurjc/ais/Combat$1.class
