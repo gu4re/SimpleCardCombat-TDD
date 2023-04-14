@@ -26,4 +26,4 @@ git pull
 
 ## LICENSE <img src="https://www.logomed-gabinet.pl/wp-content/uploads/2021/06/license-icon-2793454.png" alt="license-icon" width="40" height="40" align="left"/>
 
-<p align="justify">This project is licensed under the open source Apache License 2.0. Please make sure that you comply with <a href="https://github.com/gu4re/DailyBash/blob/main/LICENSE">the terms of this license<a> when using the code in this repository.</p>
+<p align="justify">This project is licensed under the open source MIT LICENSE. Please make sure that you comply with <a href="https://github.com/gu4re/SimpleCardCombat-TDD/blob/main/LICENSE">the terms of this license<a> when using the code in this repository.</p>
